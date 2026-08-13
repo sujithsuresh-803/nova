@@ -1,4 +1,4 @@
-# ✦ Northstar
+# ✦ Nova
 
 **Turn inspiration into measurable goals.** A Pinterest-style vision board that doesn't stop at pretty pictures — it connects the things that inspire you to goals you can actually track.
 
@@ -8,14 +8,14 @@
 
 ## Why this exists (the product bet)
 
-Vision boards are great at capturing *aspiration* but terrible at driving *action*. Habit trackers are great at action but feel joyless. **Northstar's bet is that the gap between "I'm inspired" and "I'm making progress" is where most personal goals die** — so it puts inspiration and measurement in the same place.
+Vision boards are great at capturing *aspiration* but terrible at driving *action*. Habit trackers are great at action but feel joyless. **Nova's bet is that the gap between "I'm inspired" and "I'm making progress" is where most personal goals die** — so it puts inspiration and measurement in the same place.
 
 That single insight drives every feature decision. See [`LEARNING.md`](./LEARNING.md) for the full product case study.
 
 ## Features
 
 - **Boards** — organize inspiration into themed collections (Career, Travel, Health…).
-- **Ideas (pins)** — a masonry board of images, notes, links, and tags. No image? Northstar auto-generates a soft gradient cover, so the board never looks broken.
+- **Ideas (pins)** — a masonry board of images, notes, links, and tags. No image? Nova auto-generates a soft gradient cover, so the board never looks broken.
 - **Goals** — attach measurable goals to any board: a metric, a current/target value, a due date, and checklist milestones. Live progress bars.
 - **Dashboard with a North Star metric** — one number (average progress across all goals) that tells you if the whole vision is trending up, plus deadlines and per-board summaries.
 - **Search** across ideas and goals.

@@ -1,6 +1,7 @@
 import { useEffect, useReducer, useState } from 'react'
 
-const STORAGE_KEY = 'northstar.v2'
+const STORAGE_KEY = 'nova.v1'
+const LEGACY_STORAGE_KEY = 'northstar.v2' // migrate data saved under the old name
 
 const uid = () => Math.random().toString(36).slice(2, 9)
 
@@ -72,7 +73,7 @@ function addDays(n) {
 
 function load() {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY)
+    const raw = localStorage.getItem(STORAGE_KEY) || localStorage.getItem(LEGACY_STORAGE_KEY)
     if (raw) {
       const parsed = JSON.parse(raw)
       // Ensure newer fields exist for states saved before they were added.
@@ -132,11 +133,11 @@ export function useStore() {
   return [state, dispatch]
 }
 
-const THEME_KEY = 'northstar.theme'
+const THEME_KEY = 'nova.theme'
 
 function initialTheme() {
   try {
-    const saved = localStorage.getItem(THEME_KEY)
+    const saved = localStorage.getItem(THEME_KEY) || localStorage.getItem('northstar.theme')
     if (saved) return saved
   } catch { /* ignore */ }
   return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'

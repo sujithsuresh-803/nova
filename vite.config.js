@@ -10,8 +10,8 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['icon.svg', 'star.svg'],
       manifest: {
-        name: 'Northstar — Vision & Goals',
-        short_name: 'Northstar',
+        name: 'Nova — Your Pop-Star Era',
+        short_name: 'Nova',
         description: 'Turn inspiration into measurable goals. A vision board + goal tracker.',
         theme_color: '#7c3aed',
         background_color: '#140d1f',

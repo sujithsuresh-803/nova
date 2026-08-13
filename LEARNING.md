@@ -1,6 +1,6 @@
-# Northstar — Product Case Study & Learning Doc
+# Nova — Product Case Study & Learning Doc
 
-> How I thought about **Northstar** as a *product*, not just an app.
+> How I thought about **Nova** as a *product*, not just an app.
 > Read this alongside the live demo — it's written like a real product one-pager +
 > decision log, so you can see the reasoning, not just the result.
 
@@ -10,14 +10,14 @@
 
 ## 1. TL;DR (the 30-second version)
 
-**Northstar is a vision board *and coach* for aspiring musicians.** It helps a bedroom
+**Nova is a vision board *and coach* for aspiring musicians.** It helps a bedroom
 artist turn inspiration into measurable goals — and then tells them, based on the *kind*
 of creator they are (Reels singer, acoustic songwriter, instrumentalist, EDM producer,
 composer, cover artist), exactly what their path to a first break looks like and what to
 do next.
 
 The core bet: **young creators don't fail for lack of dreams — they fail for lack of a
-clear, personalized path.** Northstar closes the gap between *"I want to blow up"* and
+clear, personalized path.** Nova closes the gap between *"I want to blow up"* and
 *"here's my next concrete step,"* and makes progress visible with a single North Star metric.
 
 Built with React + Vite, local-first (no accounts), installable as a PWA, and — deliberately
@@ -43,7 +43,7 @@ move; and "how to blow up" advice online is one-size-fits-all noise.
 **The insight (the wedge):** the drop-off happens in the handoff between *inspiration →
 plan → measurable action*. No tool owns that handoff **for a specific type of creator.**
 A Reels singer and an EDM producer need completely different playbooks — and nobody hands
-them one that's tied to their own tracked goals. **Northstar puts inspiration, a
+them one that's tied to their own tracked goals. **Nova puts inspiration, a
 personalized path, and a progress metric in the same place.**
 
 ---
@@ -74,7 +74,7 @@ large, vague one.* Narrowing is a product decision, not a retreat.
 posts covers and clips, dreams of doing this full-time. Overwhelmed by *what to actually do
 next.* Motivated by momentum and identity, not spreadsheets.
 
-Because "musician" isn't one persona, Northstar models **creator archetypes** as
+Because "musician" isn't one persona, Nova models **creator archetypes** as
 first-class users — each with its own path, platforms, cadence, and success metric:
 
 🎬 Reels Singer · 🎸 Acoustic Singer-Songwriter · 🎹 Instrumentalist · 🎧 EDM Producer ·
@@ -86,7 +86,7 @@ first-class users — each with its own path, platforms, cadence, and success me
 - *When* I check in, *I want to* see one honest signal of momentum, *so I can* keep going or refocus.
 
 **Explicit non-users (scoping is a product skill):** established/label artists, bands
-needing collaboration, and anyone wanting a full DAW or distribution tool. Northstar is a
+needing collaboration, and anyone wanting a full DAW or distribution tool. Nova is a
 **single-player planning & motivation** layer, not a studio.
 
 ---
@@ -233,7 +233,7 @@ toward whichever half (capture vs. coaching) is doing the work.
 
 ## 12. How I'd talk about this in an interview
 
-> "Northstar is a vision board and coach for aspiring musicians. I started generic and
+> "Nova is a vision board and coach for aspiring musicians. I started generic and
 > **narrowed to Gen-Z bedroom artists**, which made the value prop urgent — *get your first
 > break* instead of *track your dreams*. The headline feature is a **path engine**: you pick
 > your creator archetype and get a tailored roadmap, growth levers, and next steps that turn
@@ -245,7 +245,7 @@ toward whichever half (capture vs. coaching) is doing the work.
 
 ### Resume bullets you can lift
 
-- **Repositioned** a generic vision-board app into **Northstar**, a vision-board-and-coach for
+- **Repositioned** a generic vision-board app into **Nova**, a vision-board-and-coach for
   aspiring musicians, sharpening the value prop from "track your dreams" to "get your first
   break" by narrowing to a specific, underserved Gen-Z audience.
 - **Designed and shipped a rules-based personalization engine** that maps a creator's

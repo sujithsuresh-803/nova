@@ -63,7 +63,7 @@ export default function PinModal({ boards, initial, onSave, onClose }) {
         <span>Tags <span className="muted">(comma separated)</span></span>
         <input value={form.tags} onChange={set('tags')} placeholder="lyrics, live, dream" />
       </label>
-      <p className="hint">💡 No image? Northstar makes a soft gradient cover automatically.</p>
+      <p className="hint">💡 No image? Nova makes a soft gradient cover automatically.</p>
     </Modal>
   )
 }

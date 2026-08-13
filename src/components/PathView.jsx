@@ -16,7 +16,7 @@ export default function PathView({ profile, boards, dispatch }) {
         <div className="path-intro">
           <div className="path-intro__badge"><Icon name="rocket" size={26} /></div>
           <h2>What kind of artist are you?</h2>
-          <p className="muted">Pick your lane and Northstar maps your path to a first break — the moves, the metric to watch, and your next steps.</p>
+          <p className="muted">Pick your lane and Nova maps your path to a first break — the moves, the metric to watch, and your next steps.</p>
         </div>
         <div className="arch-grid">
           {ARCHETYPES.map(a => (

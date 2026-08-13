@@ -1,8 +1,12 @@
-# Deploying Northstar 🚀
+# Deploying Nova 🚀
 
-Northstar is a **static site** — once built, it's just HTML/CSS/JS files with no
+Nova is a **static site** — once built, it's just HTML/CSS/JS files with no
 server or database. That means it can be hosted for **free** almost anywhere. This
 guide gives you three paths, easiest first. Pick one.
+
+> ✅ **Already on GitHub:** the code is pushed to **https://github.com/sujithsuresh-803/nova**.
+> So for **Path B** you can skip step 1 (the repo already exists) and jump straight to
+> "Connect it to Vercel" to get a live demo link.
 
 > **The one command that matters:** `npm run build`
 > It turns the `src/` code into a `dist/` folder of plain files. *That folder* is
@@ -38,11 +42,11 @@ puts your code on GitHub, which recruiters like to see next to a live demo.
 cd northstar
 git init
 git add .
-git commit -m "Northstar: vision board + goal tracker"
+git commit -m "Nova: vision board + goal tracker"
 ```
-Create an **empty** repo at https://github.com/new (name it `northstar`), then:
+Create an **empty** repo at https://github.com/new (name it `nova`), then:
 ```bash
-git remote add origin https://github.com/<your-username>/northstar.git
+git remote add origin https://github.com/<your-username>/nova.git
 git branch -M main
 git push -u origin main
 ```
@@ -50,11 +54,11 @@ git push -u origin main
 
 ### 2. Connect it to Vercel
 1. Sign up at **https://vercel.com** with your GitHub account (free "Hobby" plan).
-2. Click **Add New → Project**, pick your `northstar` repo, click **Import**.
+2. Click **Add New → Project**, pick your `nova` repo, click **Import**.
 3. Vercel auto-detects Vite. Leave the defaults:
    - Build command: `npm run build`
    - Output directory: `dist`
-4. Click **Deploy**. ~30 seconds later you get `https://northstar-xxxx.vercel.app`.
+4. Click **Deploy**. ~30 seconds later you get `https://nova-xxxx.vercel.app`.
 
 **From now on:** `git push` → Vercel rebuilds and updates the site automatically.
 That's the whole workflow professional teams use, in miniature.
@@ -79,10 +83,10 @@ Do Path B step 1 first (get the code on GitHub). Then:
    npm run deploy
    ```
 4. In your GitHub repo → **Settings → Pages**, set the source to the **`gh-pages`**
-   branch. Your site appears at `https://<your-username>.github.io/northstar/`.
+   branch. Your site appears at `https://<your-username>.github.io/nova/`.
 
 > This already works because `vite.config.js` uses `base: './'` (relative paths),
-> so the app loads correctly from the `/northstar/` subpath. Run `npm run deploy`
+> so the app loads correctly from the `/nova/` subpath. Run `npm run deploy`
 > again anytime to update.
 
 ---
@@ -104,7 +108,7 @@ read the code and your [`LEARNING.md`](./LEARNING.md) case study in the same pla
 
 - **Build step:** source code (`src/`) → optimized static files (`dist/`). This is
   what "compiling a frontend" means in practice.
-- **Static hosting:** no backend needed because Northstar stores data in the browser
+- **Static hosting:** no backend needed because Nova stores data in the browser
   (`localStorage`). This is why hosting is free and simple.
 - **Continuous deployment (Path B):** connecting Git to a host so a `git push`
   automatically ships your change. This is the core of modern web workflows.

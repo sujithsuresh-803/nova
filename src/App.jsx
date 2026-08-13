@@ -67,7 +67,7 @@ export default function App() {
         <div className="brand" onClick={() => setView('dashboard')} role="button">
           <span className="brand__mark"><Icon name="sparkles" size={20} /></span>
           <span className="brand__text">
-            <span className="brand__name">Northstar</span>
+            <span className="brand__name">Nova</span>
             <span className="brand__tag">your pop-star era ✦</span>
           </span>
         </div>
