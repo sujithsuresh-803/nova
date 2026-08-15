@@ -1,0 +1,20 @@
+{
+  "expo": {
+    "name": "Nova",
+    "slug": "nova",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "backgroundColor": "#140d1f",
+    "splash": {
+      "backgroundColor": "#140d1f",
+      "resizeMode": "contain"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": { "supportsTablet": true },
+    "android": {
+      "adaptiveIcon": { "backgroundColor": "#140d1f" }
+    },
+    "web": { "bundler": "metro" }
+  }
+}

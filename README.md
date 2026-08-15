@@ -1,66 +1,60 @@
-# ✦ Nova
+# ✦ Nova — your pop-star era
 
-**Turn inspiration into measurable goals.** A Pinterest-style vision board that doesn't stop at pretty pictures — it connects the things that inspire you to goals you can actually track.
+**A vision board *and coach* for aspiring musicians.** Capture what inspires you, pick
+your creator type, and Nova maps a personalized path to your first break — with goals you
+can actually track.
 
-![type: web app](https://img.shields.io/badge/type-web%20app-e0115f) ![stack: React + Vite](https://img.shields.io/badge/stack-React%20%2B%20Vite-c026d3) ![storage: local, no account](https://img.shields.io/badge/storage-local%20%C2%B7%20no%20account-ff7a59)
+![type: web + mobile](https://img.shields.io/badge/type-web%20%2B%20mobile-7c3aed) ![web: React + Vite PWA](https://img.shields.io/badge/web-React%20%2B%20Vite%20PWA-c026d3) ![mobile: Expo / React Native](https://img.shields.io/badge/mobile-Expo%20%2F%20React%20Native-db2f9e) ![no AI](https://img.shields.io/badge/AI-none%20(by%20design)-a78bfa)
 
 ---
 
-## Why this exists (the product bet)
+## The bet
 
-Vision boards are great at capturing *aspiration* but terrible at driving *action*. Habit trackers are great at action but feel joyless. **Nova's bet is that the gap between "I'm inspired" and "I'm making progress" is where most personal goals die** — so it puts inspiration and measurement in the same place.
+Young creators don't fail for lack of dreams — they fail for lack of a clear, personalized
+**path**. Generic goal apps feel like homework; vision boards look pretty but never move.
+**Nova closes the gap between "I want to blow up" and "here's my next concrete step."**
 
-That single insight drives every feature decision. See [`LEARNING.md`](./LEARNING.md) for the full product case study.
+Full product thinking behind it → [`LEARNING.md`](./LEARNING.md) (PM case study).
+How it would scale to millions → [`SYSTEM_DESIGN.md`](./SYSTEM_DESIGN.md).
+
+## What's in this repo
+
+| Folder | What | Stack |
+|--------|------|-------|
+| **`/` (root)** | Web app (Pinterest-style board, dashboard, path engine) | React + Vite, installable **PWA** |
+| **[`/mobile`](./mobile)** | Native iOS + Android app | **Expo / React Native** |
+| [`LEARNING.md`](./LEARNING.md) | Product case study (personas, RICE, North Star, roadmap) | — |
+| [`SYSTEM_DESIGN.md`](./SYSTEM_DESIGN.md) | Multi-platform architecture at scale (sync, API, data model) | — |
+| [`DEPLOY.md`](./DEPLOY.md) | How to deploy the web app | — |
 
 ## Features
 
-- **Boards** — organize inspiration into themed collections (Career, Travel, Health…).
-- **Ideas (pins)** — a masonry board of images, notes, links, and tags. No image? Nova auto-generates a soft gradient cover, so the board never looks broken.
-- **Goals** — attach measurable goals to any board: a metric, a current/target value, a due date, and checklist milestones. Live progress bars.
-- **Dashboard with a North Star metric** — one number (average progress across all goals) that tells you if the whole vision is trending up, plus deadlines and per-board summaries.
-- **Search** across ideas and goals.
-- **Zero friction** — no login, no backend. Everything saves to your browser via `localStorage`.
+- **My Path** — pick your creator archetype (🎬 Reels · 🎸 Acoustic · 🎹 Instrumentalist · 🎧 EDM · 🎼 Composer · 🎤 Cover) → get a tailored **roadmap**, growth levers, and next steps you can turn into tracked goals in one tap. *(A rules-based recommender — no AI: consistent, offline, reviewable.)*
+- **Vision board** — masonry board of ideas (lyrics, looks, dream shows); auto-gradient covers so it never looks empty.
+- **Goals + North Star** — measurable goals with progress bars, and a single **North Star metric** (average progress) that tells you if your come-up is trending up.
+- **Made for the audience** — Olivia Rodrigo–inspired palette (SOUR lilac + GUTS bruise-purple), **dark mode**, installable as an app.
+- **Zero friction** — no login, no backend; saves on-device.
 
-## Run it
+## Run the web app
 
 ```bash
-cd northstar
 npm install
 npm run dev
 ```
 
-Then open the URL Vite prints (default http://localhost:5173).
+## Run the mobile app
 
-Build a production bundle with `npm run build` and preview it with `npm run preview`.
-
-## Tech
-
-| Area | Choice | Why |
-|------|--------|-----|
-| Framework | React 18 + Vite | Fast dev loop, tiny footprint, no config |
-| State | `useReducer` + `localStorage` | Predictable actions, persistent, no backend needed |
-| Styling | Hand-written CSS | Full control of the Pinterest-style masonry & motion |
-| Layout | CSS `columns` masonry + `conic-gradient` progress ring | No chart/layout libraries |
-
-No AI, no external APIs, no tracking. It's a focused, self-contained product.
-
-## Project structure
-
+```bash
+cd mobile
+npm install
+npx expo start
 ```
-northstar/
-├─ index.html
-├─ src/
-│  ├─ main.jsx            # entry
-│  ├─ App.jsx             # shell, routing-by-state, handlers
-│  ├─ store.js            # reducer, seed data, localStorage hook
-│  ├─ index.css           # full design system
-│  └─ components/
-│     ├─ Dashboard.jsx    # North Star metric + summaries
-│     ├─ PinCard.jsx      # masonry tile
-│     ├─ GoalCard.jsx     # progress + milestones
-│     ├─ Modal.jsx        # reusable dialog
-│     ├─ PinModal.jsx     # add/edit idea
-│     ├─ GoalModal.jsx    # add/edit goal
-│     └─ BoardModal.jsx   # add/edit board
-└─ LEARNING.md            # product case study (the resume piece)
-```
+Then scan the QR code with **Expo Go** on your phone. Details in [`mobile/README.md`](./mobile/README.md).
+
+## Tech at a glance
+
+- **Web:** React 18, Vite, hand-written CSS design system, `vite-plugin-pwa`, `localStorage`.
+- **Mobile:** Expo (React Native 0.74), Context + `useReducer`, `AsyncStorage`, custom tab nav.
+- **Shared:** the same rules-based path engine and North Star logic across both clients.
+
+No AI, no external APIs, no tracking — a focused, self-contained product.
