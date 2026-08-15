@@ -255,6 +255,31 @@ toward whichever half (capture vs. coaching) is doing the work.
   **AARRR** supporting tree and an explicit retention hypothesis, and built it end-to-end
   (**React + Vite**, local-first, **installable PWA**, dark mode) with a designed onboarding,
   empty states, and a product one-pager + decision log.
+- Delivered the product across **two platforms** (React PWA + **React Native / Expo** app sharing
+  one path engine) and authored a **full system design** — offline-first sync, REST API, data
+  model, versioned content service, and scaling/privacy trade-offs.
+
+---
+
+## 13. Architecture & platforms
+
+Nova ships as **two clients of one product**:
+
+- **Web** — React + Vite, installable PWA *(this repo root)*.
+- **Mobile** — Expo / React Native, native iOS + Android *(see [`mobile/`](./mobile))*.
+
+Both share the same **rules-based path engine** and **North Star** logic, and both are
+**offline-first** (local store is the source of truth). Today they persist on-device with no
+backend — the right call for an MVP (zero friction, instant, free to run).
+
+**How it scales:** [`SYSTEM_DESIGN.md`](./SYSTEM_DESIGN.md) designs the production version — the
+same product with accounts, multi-device **offline-first sync** (batch delta sync + last-write-wins),
+a REST API over Postgres, the path engine as a **versioned content service**, and an async analytics
+pipeline that measures the core product bet. It's sized honestly (mid-scale) and leads with the
+*real* hard parts: sync correctness and privacy for an under-18 audience.
+
+**🔗 The full technical write-up:** [`SYSTEM_DESIGN.md`](./SYSTEM_DESIGN.md) — architecture,
+ER model, and sync sequence diagrams (rendered), plus a decision-log of trade-offs.
 
 ---
 

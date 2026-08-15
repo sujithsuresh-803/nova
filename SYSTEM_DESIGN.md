@@ -10,6 +10,9 @@
 > trade-offs behind each decision. Sections marked **🗣️ Explain** narrate the reasoning
 > out loud.
 
+**Product context:** for *why* Nova exists, who it's for, and the product decisions behind it,
+see the case study → [`LEARNING.md`](./LEARNING.md).
+
 ---
 
 ## 1. Problem statement
