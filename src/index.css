@@ -86,7 +86,69 @@ h1, h2, h3 { margin: 0; letter-spacing: -.01em; }
 .i { display: inline-flex; vertical-align: -.15em; }
 
 /* ---------- Layout ---------- */
-.app { display: grid; grid-template-columns: 256px 1fr; min-height: 100vh; }
+.app { display: grid; grid-template-columns: 256px 1fr; min-height: 100vh; position: relative; overflow-x: clip; }
+.sidebar, .main { position: relative; z-index: 1; }
+
+/* 21st.dev-inspired: drifting aurora background */
+.aurora { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.aurora::before, .aurora::after {
+  content: ''; position: absolute; width: 62vw; height: 62vw; border-radius: 50%;
+  filter: blur(90px); opacity: .5; mix-blend-mode: screen;
+}
+.aurora::before {
+  background: radial-gradient(circle, var(--brand), transparent 60%);
+  top: -18%; left: -12%; animation: drift1 20s ease-in-out infinite alternate;
+}
+.aurora::after {
+  background: radial-gradient(circle, var(--brand-2), transparent 60%);
+  bottom: -22%; right: -12%; animation: drift2 24s ease-in-out infinite alternate;
+}
+:root:not([data-theme='dark']) .aurora::before,
+:root:not([data-theme='dark']) .aurora::after { opacity: .35; }
+@keyframes drift1 { to { transform: translate(18vw, 12vh) scale(1.2); } }
+@keyframes drift2 { to { transform: translate(-16vw, -10vh) scale(1.15); } }
+
+/* Sheen sweep across the North Star hero */
+.northstar-card::after {
+  content: ''; position: absolute; top: 0; left: -60%; width: 40%; height: 100%;
+  background: linear-gradient(105deg, transparent, rgba(255,255,255,.16), transparent);
+  transform: skewX(-18deg); pointer-events: none; z-index: 2;
+  animation: sheen 7s ease-in-out infinite;
+}
+@keyframes sheen { 0% { left: -60%; } 28% { left: 130%; } 100% { left: 130%; } }
+
+/* Shine sweep on primary buttons (hover) */
+.btn--primary { position: relative; overflow: hidden; }
+.btn--primary::after {
+  content: ''; position: absolute; top: 0; left: -130%; width: 60%; height: 100%;
+  background: linear-gradient(105deg, transparent, rgba(255,255,255,.4), transparent);
+  transform: skewX(-18deg); transition: left .6s ease; pointer-events: none;
+}
+.btn--primary:hover::after { left: 130%; }
+
+/* Staggered fade-up entrance for cards */
+.northstar-card, .path-hero, .panel, .goal, .pin, .motion, .arch-card, .step-card, .fact, .phase {
+  animation: rise .5s ease both;
+}
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } }
+.masonry .pin:nth-child(2) { animation-delay: .05s; }
+.masonry .pin:nth-child(3) { animation-delay: .10s; }
+.masonry .pin:nth-child(4) { animation-delay: .15s; }
+.masonry .pin:nth-child(n+5) { animation-delay: .2s; }
+.motion-list .motion:nth-child(2) { animation-delay: .06s; }
+.motion-list .motion:nth-child(3) { animation-delay: .12s; }
+.motion-list .motion:nth-child(n+4) { animation-delay: .18s; }
+.arch-grid .arch-card:nth-child(2n) { animation-delay: .06s; }
+.arch-grid .arch-card:nth-child(3n) { animation-delay: .12s; }
+
+/* Accessibility: honor reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .aurora::before, .aurora::after, .northstar-card::after,
+  .northstar-card, .path-hero, .panel, .goal, .pin, .motion, .arch-card, .step-card, .fact, .phase {
+    animation: none !important;
+  }
+  .btn--primary::after { transition: none; }
+}
 
 .sidebar {
   background: color-mix(in srgb, var(--surface) 70%, transparent);

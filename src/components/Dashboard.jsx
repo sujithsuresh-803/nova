@@ -1,6 +1,29 @@
+import { useEffect, useRef, useState } from 'react'
 import Icon from './Icon'
 
 const clampPct = (g) => Math.min(100, Math.round((g.target > 0 ? g.current / g.target : 0) * 100))
+
+// Animate a number from 0 → target on mount (respects reduced-motion).
+function useCountUp(target, duration = 900) {
+  const [val, setVal] = useState(0)
+  const raf = useRef(0)
+  useEffect(() => {
+    const reduce = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches
+    if (reduce) { setVal(target); return }
+    const start = performance.now()
+    const tick = (now) => {
+      const t = Math.min(1, (now - start) / duration)
+      const eased = 1 - Math.pow(1 - t, 3) // easeOutCubic
+      setVal(Math.round(eased * target))
+      if (t < 1) raf.current = requestAnimationFrame(tick)
+    }
+    raf.current = requestAnimationFrame(tick)
+    // Safety net: guarantee we land on target even if rAF is throttled.
+    const fallback = setTimeout(() => setVal(target), duration + 150)
+    return () => { cancelAnimationFrame(raf.current); clearTimeout(fallback) }
+  }, [target, duration])
+  return val
+}
 
 export default function Dashboard({ boards, pins, goals, archetype, onJump }) {
   const activeGoals = goals.filter(g => clampPct(g) < 100)
@@ -10,6 +33,8 @@ export default function Dashboard({ boards, pins, goals, archetype, onJump }) {
   const northStar = goals.length
     ? Math.round(goals.reduce((s, g) => s + Math.min(1, g.target > 0 ? g.current / g.target : 0), 0) / goals.length * 100)
     : 0
+
+  const nsDisplay = useCountUp(northStar)
 
   // Goals in motion — sorted by how close they are to done (momentum first).
   const inMotion = [...activeGoals].sort((a, b) => clampPct(b) - clampPct(a))
@@ -41,9 +66,9 @@ export default function Dashboard({ boards, pins, goals, archetype, onJump }) {
           <span className="ns-decor__b2">🦋</span>
           <span className="ns-decor__s3"><Icon name="music" size={54} /></span>
         </div>
-        <div className="northstar-card__ring" style={{ '--pct': northStar }}>
+        <div className="northstar-card__ring" style={{ '--pct': nsDisplay }}>
           <div className="northstar-card__inner">
-            <span className="northstar-card__num">{northStar}%</span>
+            <span className="northstar-card__num">{nsDisplay}%</span>
             <span className="northstar-card__cap">North Star</span>
           </div>
         </div>

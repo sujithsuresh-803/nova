@@ -63,6 +63,7 @@ export default function App() {
 
   return (
     <div className="app">
+      <div className="aurora" aria-hidden="true" />
       <aside className="sidebar">
         <div className="brand" onClick={() => setView('dashboard')} role="button">
           <span className="brand__mark"><Icon name="sparkles" size={20} /></span>
