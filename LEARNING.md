@@ -6,6 +6,8 @@
 
 **Author:** Sujith Suresh · **Role I'm playing:** Product owner + builder · **Timebox:** portfolio project
 
+**▶ Live demo:** https://nova-7iqn.vercel.app · **Code:** https://github.com/sujithsuresh-803/nova
+
 ---
 
 ## 1. TL;DR (the 30-second version)

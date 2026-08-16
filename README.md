@@ -4,6 +4,8 @@
 your creator type, and Nova maps a personalized path to your first break — with goals you
 can actually track.
 
+### ▶ [Live demo → nova-7iqn.vercel.app](https://nova-7iqn.vercel.app)
+
 ![type: web + mobile](https://img.shields.io/badge/type-web%20%2B%20mobile-7c3aed) ![web: React + Vite PWA](https://img.shields.io/badge/web-React%20%2B%20Vite%20PWA-c026d3) ![mobile: Expo / React Native](https://img.shields.io/badge/mobile-Expo%20%2F%20React%20Native-db2f9e) ![no AI](https://img.shields.io/badge/AI-none%20(by%20design)-a78bfa)
 
 ---
